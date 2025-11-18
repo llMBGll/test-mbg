@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Velora Luxe Studio — créations digitales, visuels IA et esthétiques luxe."/>
+<title>Velora Luxe Studio – Accueil</title>
+
+<!-- Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",system-ui,sans-serif;
+}
+
+html, body{
+height:100%;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at 10% 10%, #b78bff 0%, #6a3aff 30%, #1b103d 70%);
+color:#ffffff;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+padding:24px;
+}
+
+.wrapper{
+width:100%;
+max-width:980px;
+}
+
+.card{
+background:rgba(15,10,30,0.92);
+border-radius:26px;
+padding:40px 32px 32px;
+box-shadow:0 28px 80px rgba(0,0,0,0.65);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.14);
+}
+
+.logo-badge{
+width:60px;
+height:60px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:18px;
+background:linear-gradient(135deg,#ffd6ff,#b36bff);
+color:#1a1031;
+font-weight:700;
+font-size:1.35rem;
+}
+
+.eyebrow{
+text-transform:uppercase;
+letter-spacing:0.18em;
+font-size:0.78rem;
+opacity:0.7;
+margin-bottom:6px;
+}
+
+h1{
+font-size:2.4rem;
+line-height:1.15;
+margin-bottom:10px;
+}
+
+.subtitle{
+opacity:0.9;
+font-size:0.98rem;
+max-width:520px;
+margin-bottom:22px;
+}
+
+.pill-row{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:20px;
+}
+
+.pill{
+font-size:0.78rem;
+padding:6px 12px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,0.18);
+background:rgba(255,255,255,0.03);
+opacity:0.9;
+}
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:18px;
+}
+
+.button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 26px;
+border-radius:999px;
+border:none;
+text-decoration:none;
+font-weight:600;
+font-size:0.98rem;
+cursor:pointer;
+transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, opacity 0.15s ease;
+white-space:nowrap;
+}
+
+.button-primary{
+background:linear-gradient(135deg,#ffb36b,#ff5c9a);
+color:#1b103d;
+box-shadow:0 14px 40px rgba(0,0,0,0.55);
+}
+
+.button-primary:hover{
+transform:translateY(-2px);
+box-shadow:0 18px 55px rgba(0,0,0,0.7);
+}
+
+.button-ghost{
+background:transparent;
+color:#ffffff;
+border:1px solid rgba(255,255,255,0.28);
+}
+
+.button-ghost:hover{
+background:rgba(255,255,255,0.06);
+}
+
+.footer-note{
+margin-top:10px;
+font-size:0.78rem;
+opacity:0.6;
+}
+
+/* SECTION PORTFOLIO (ancre #portfolio) */
+.portfolio{
+margin-top:26px;
+padding-top:18px;
+border-top:1px solid rgba(255,255,255,0.12);
+}
+
+.portfolio h2{
+font-size:1.25rem;
+margin-bottom:10px;
+}
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:14px;
+}
+
+.portfolio-card{
+background:rgba(255,255,255,0.04);
+border-radius:14px;
+padding:14px 12px;
+font-size:0.86rem;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+@media (max-width:640px){
+.card{
+padding:28px 20px 22px;
+}
+h1{
+font-size:1.8rem;
+}
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+<main class="card" role="main" aria-labelledby="site-title">
+<div class="logo-badge" aria-hidden="true">VL</div>
+
+<div class="eyebrow">Velora Luxe Studio</div>
+
+<h1 id="site-title">
+Visuels IA sur-mesure,<br/>
+direction artistique & esthétique luxe.
+</h1>
+
+<p class="subtitle">
+Créations digitales, visuels pour réseaux, concepts de modèles IA et ambiances féminines
+contemporaines – pour un univers visuel cohérent, émotionnel et premium.
+</p>
+
+<div class="pill-row" aria-hidden="true">
+<div class="pill">Portfolios IA</div>
+<div class="pill">Moodboards & concepts</div>
+<div class="pill">Visuels pour réseaux sociaux</div>
+</div>
+
+<!-- BOUTONS -->
+<nav class="actions" aria-label="Actions principales">
+<!-- 1 : scroll vers la section portfolio sur la même page -->
+<a href="#portfolio" class="button button-primary">
+Voir le portfolio
+</a>
+
+<!-- 2 : ouvre la page collection.html avec tes cartes produits -->
+<a href="collection.html" class="button button-ghost">
+Voir la collection
+</a>
+
+<!-- 3 : contact (tu pourras mettre une vraie adresse plus tard) -->
+<a href="mailto:contact@velora.studio" class="button button-ghost">
+Nous contacter
+</a>
+</nav>
+
+<p class="footer-note">
+© 2025 Velora Luxe Studio — Créations digitales & univers IA.
+</p>
+
+<!-- SECTION PORTFOLIO (cible du lien #portfolio) -->
+<section id="portfolio" class="portfolio" aria-label="Portfolio Velora">
+<h2>Portfolio sélectionné</h2>
+<div class="portfolio-grid">
+<div class="portfolio-card">Série “Lune violette” – portraits cinématiques</div>
+<div class="portfolio-card">Pack “Café de nuit” – visuels lifestyle</div>
+<div class="portfolio-card">Ambiances bain & spa – moodboard bien-être</div>
+<div class="portfolio-card">Mini-collection “Summer Glow” – contenus réseaux</div>
+</div>
+</section>
+</main>
+</div>
+</body>
+</html>

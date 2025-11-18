@@ -1,372 +1,210 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Collection – Velora Luxe Studio</title>
-    <style>
-        *{ margin:0; padding:0; box-sizing:border-box; font-family:"Poppins", system-ui, sans-serif; }
-        :root{
-            --card-bg: rgba(255,255,255,0.06);
-            --accent: #ffd166;
-            --muted: rgba(255,255,255,0.75);
-        }
-        body{
-            background: radial-gradient(circle at top,#9b59ff,#2d1354 55%);
-            color:#fff;
-            padding:40px 0;
-            min-height:100vh;
-        }
-        .wrapper{ max-width:1100px; margin:0 auto; padding:0 20px; }
-        h1{ text-align:center; font-size:2.2rem; margin-bottom:8px; font-weight:700; }
-        .subtitle{ text-align:center; opacity:.85; margin-bottom:28px; font-size:0.95rem; }
-        .top-links{
-            display:flex; justify-content:space-between; align-items:center;
-            margin-bottom:22px;
-        }
-        .top-links a{
-            color:var(--muted); text-decoration:none; font-weight:600;
-            display:inline-flex; gap:8px; align-items:center;
-            background:linear-gradient(90deg, rgba(255,255,255,0.04), transparent);
-            padding:8px 12px; border-radius:10px;
-            transition:transform .15s ease, opacity .15s;
-        }
-        .top-links a:hover{ transform:translateY(-3px); opacity:0.95; }
-        .controls{
-            display:flex; gap:12px; align-items:center;
-        }
-        .search{
-            background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.04);
-            padding:8px 12px; border-radius:10px; color:#fff; min-width:220px;
-        }
-        .filters{ display:flex; gap:8px; align-items:center; margin-bottom:20px; flex-wrap:wrap; }
-        .filter-btn{
-            background:transparent; border:1px solid rgba(255,255,255,0.08);
-            color:var(--muted); padding:7px 10px; border-radius:8px; cursor:pointer;
-        }
-        .filter-btn.active{
-            background:var(--accent); color:#1a1a1a; border-color:transparent;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collection – Velora Luxe Studio</title>
 
-        /* Grid */
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:18px;
-        }
-        @media (max-width:1000px){ .grid{ grid-template-columns:repeat(3,1fr); } }
-        @media (max-width:700px){ .grid{ grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:420px){ .grid{ grid-template-columns:1fr; } }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",system-ui,sans-serif;
+}
 
-        .card{
-            background:var(--card-bg); border-radius:14px; padding:12px; overflow:hidden;
-            transition:transform .18s ease, box-shadow .18s ease;
-            border:1px solid rgba(255,255,255,0.03);
-        }
-        .card:hover{ transform:translateY(-6px); box-shadow:0 10px 30px rgba(0,0,0,0.25); }
-        .thumb{
-            height:150px; border-radius:10px; overflow:hidden; background:linear-gradient(135deg,#8ec5ff,#e0c3fc);
-            display:flex; align-items:end; justify-content:space-between; padding:10px; color:#111;
-        }
-        .thumb svg{ width:100%; height:100%; display:block; object-fit:cover; }
-        .card-body{ padding-top:10px; display:flex; justify-content:space-between; align-items:center; gap:8px; }
-        .meta{ display:flex; flex-direction:column; gap:4px; min-width:0; }
-        .title{ font-weight:700; font-size:0.98rem; color:#fff; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
-        .price{ color:var(--muted); font-size:0.9rem; }
-        .actions{ display:flex; gap:8px; align-items:center; }
-        .btn{
-            background:rgba(255,255,255,0.06); padding:7px 10px; border-radius:8px; color:#fff; border:1px solid rgba(255,255,255,0.03);
-            cursor:pointer; font-weight:600;
-        }
-        .fav{ background:transparent; border:none; color:var(--muted); cursor:pointer; font-size:1.1rem; }
-        .fav.active{ color:var(--accent); transform:scale(1.05); }
+body{
+background: radial-gradient(circle at 10% 10%, #b78bff 0%, #6a3aff 30%, #1b103d 70%);
+color:white;
+padding:40px 0;
+}
 
-        /* modal */
-        .modal{
-            position:fixed; inset:0; display:none; place-items:center; background:rgba(10,10,10,0.6); z-index:40;
-        }
-        .modal.open{ display:grid; }
-        .modal-card{
-            width:min(760px,95%); background:#fff; color:#111; border-radius:12px; overflow:hidden;
-            display:grid; grid-template-columns:1fr 320px;
-        }
-        @media (max-width:720px){ .modal-card{ grid-template-columns:1fr; } }
-        .modal-img{ background:#eee; height:100%; min-height:320px; display:flex; align-items:center; justify-content:center; }
-        .modal-body{ padding:18px; }
-        .close-btn{ background:transparent; border:none; font-weight:700; font-size:1rem; cursor:pointer; color:#333; }
-        .muted{ color:#666; font-size:0.95rem; margin-bottom:10px; }
+.wrapper{
+max-width:1200px;
+margin:0 auto;
+padding:0 20px;
+}
 
-        footer{ margin-top:30px; text-align:center; color:rgba(255,255,255,0.6); font-size:0.85rem; }
-    </style>
+a{
+color:inherit;
+text-decoration:none;
+}
+
+.back{
+display:inline-block;
+margin-bottom:25px;
+opacity:.7;
+font-size:.95rem;
+}
+
+h1{
+text-align:center;
+margin-bottom:12px;
+font-size:2.6rem;
+font-weight:700;
+}
+
+.subtitle{
+text-align:center;
+margin-bottom:50px;
+opacity:.75;
+}
+
+/* Filtres */
+.filters{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-bottom:40px;
+flex-wrap:wrap;
+}
+
+.filter-btn{
+padding:8px 18px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.25);
+background:rgba(255,255,255,.06);
+cursor:pointer;
+opacity:.85;
+transition:.25s;
+font-size:.9rem;
+}
+
+.filter-btn:hover{
+opacity:1;
+background:rgba(255,255,255,.12);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.item{
+background:rgba(255,255,255,.08);
+border-radius:18px;
+padding:18px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.15);
+transition:.25s;
+}
+
+.item:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 35px rgba(0,0,0,.35);
+}
+
+.thumb{
+height:160px;
+background:rgba(0,0,0,.25);
+border-radius:12px;
+margin-bottom:14px;
+}
+
+.name{
+font-size:1.1rem;
+font-weight:600;
+margin-bottom:4px;
+}
+
+.price{
+opacity:.7;
+margin-bottom:10px;
+}
+
+.btn{
+display:inline-block;
+padding:8px 18px;
+border-radius:999px;
+background:linear-gradient(135deg,#ffb36b,#ff5c9a);
+color:#1b103d;
+font-weight:600;
+font-size:.9rem;
+margin-top:6px;
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+footer{
+text-align:center;
+opacity:.6;
+margin-top:50px;
+font-size:.85rem;
+}
+</style>
 </head>
+
 <body>
-    <div class="wrapper">
-        <div class="top-links">
-            <a href="#" aria-label="Retour">← Retour</a>
-            <div class="controls">
-                <input id="search" class="search" type="search" placeholder="Rechercher la collection..." aria-label="Rechercher">
-                <div style="width:8px"></div>
-                <a href="#" aria-label="Panier">Panier (0)</a>
-            </div>
-        </div>
+<div class="wrapper">
 
-        <h1>Collection</h1>
-        <p class="subtitle">Sélection exclusive — mobilier et luminaires d'inspiration contemporaine</p>
+<a href="index.html" class="back">← Retour</a>
 
-        <div class="filters" role="toolbar" aria-label="Filtres">
-            <button class="filter-btn active" data-cat="all">Tout</button>
-            <button class="filter-btn" data-cat="chairs">Chaises</button>
-            <button class="filter-btn" data-cat="tables">Tables</button>
-            <button class="filter-btn" data-cat="lights">Luminaires</button>
-            <button class="filter-btn" data-cat="accessories">Accessoires</button>
-        </div>
+<h1>Collection</h1>
+<p class="subtitle">Sélection de créations IA — style luxe & esthétique moderne</p>
 
-        <main class="grid" id="grid">
-            <!-- Card item template: data-title & data-category -->
-            <article class="card" data-title="Fauteuil Oslo" data-category="chairs" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <!-- simple svg placeholder -->
-                    <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g1" x1="0" x2="1"><stop stop-color="#ffb199"/><stop offset="1" stop-color="#ff0844"/></linearGradient>
-                        </defs>
-                        <rect width="600" height="400" fill="url(#g1)"/>
-                        <g transform="translate(40,60)" fill="#111" opacity="0.18">
-                            <rect x="0" y="170" width="520" height="20" rx="10"></rect>
-                            <rect x="90" y="30" width="340" height="140" rx="18"></rect>
-                        </g>
-                    </svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Fauteuil Oslo</div>
-                        <div class="price">€420</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<div class="filters">
+<button class="filter-btn">Tout</button>
+<button class="filter-btn">Chaises</button>
+<button class="filter-btn">Lampes</button>
+<button class="filter-btn">Décor</button>
+<button class="filter-btn">Accessoires</button>
+</div>
 
-            <article class="card" data-title="Table Eiken" data-category="tables" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#9be7ff"/><g transform="translate(40,60)" fill="#111" opacity="0.12"><rect x="60" y="110" width="420" height="18" rx="8"></rect><rect x="80" y="30" width="360" height="80" rx="12"></rect></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Table Eiken</div>
-                        <div class="price">€890</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<div class="grid">
 
-            <article class="card" data-title="Lampe Arco" data-category="lights" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#ffd9b3"/><g transform="translate(40,60)" fill="#111" opacity="0.12"><rect x="220" y="10" width="40" height="180" rx="6"></rect><circle cx="260" cy="40" r="34" /></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Lampe Arco</div>
-                        <div class="price">€320</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<!-- Exemple d’item -->
+<div class="item">
+<div class="thumb"></div>
+<div class="name">Fauteuil Oslo</div>
+<div class="price">€420</div>
+<a class="btn">Voir</a>
+</div>
 
-            <article class="card" data-title="Console Nera" data-category="tables" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#c6ffd8"/><g transform="translate(40,60)" fill="#111" opacity="0.12"><rect x="20" y="120" width="480" height="18" rx="8"></rect><rect x="40" y="40" width="420" height="60" rx="10"></rect></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Console Nera</div>
-                        <div class="price">€260</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<div class="item">
+<div class="thumb"></div>
+<div class="name">Table Eiken</div>
+<div class="price">€890</div>
+<a class="btn">Voir</a>
+</div>
 
-            <article class="card" data-title="Tabouret Pli" data-category="chairs" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#d7c1ff"/><g transform="translate(40,60)" fill="#111" opacity="0.12"><rect x="160" y="130" width="120" height="20" rx="8"></rect><rect x="190" y="50" width="60" height="70" rx="8"></rect></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Tabouret Pli</div>
-                        <div class="price">€95</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<div class="item">
+<div class="thumb"></div>
+<div class="name">Lampe Arco</div>
+<div class="price">€320</div>
+<a class="btn">Voir</a>
+</div>
 
-            <article class="card" data-title="Suspension Luna" data-category="lights" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#fff1a6"/><g transform="translate(40,60)" fill="#111" opacity="0.12"><circle cx="260" cy="90" r="50"></circle><rect x="256" y="0" width="8" height="60"></rect></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Suspension Luna</div>
-                        <div class="price">€210</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<div class="item">
+<div class="thumb"></div>
+<div class="name">Console Nera</div>
+<div class="price">€260</div>
+<a class="btn">Voir</a>
+</div>
 
-            <article class="card" data-title="Coussin Vell" data-category="accessories" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#ffd2e6"/><g transform="translate(40,60)" fill="#111" opacity="0.10"><rect x="60" y="50" width="420" height="160" rx="14"></rect></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Coussin Vell</div>
-                        <div class="price">€45</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
+<div class="item">
+<div class="thumb"></div>
+<div class="name">Suspension Luna</div>
+<div class="price">€210</div>
+<a class="btn">Voir</a>
+</div>
 
-            <article class="card" data-title="Étagère Nord" data-category="accessories" tabindex="0">
-                <div class="thumb" aria-hidden="true">
-                    <svg viewBox="0 0 600 400"><rect width="600" height="400" fill="#cfe8ff"/><g transform="translate(40,60)" fill="#111" opacity="0.12"><rect x="80" y="40" width="360" height="20" rx="6"></rect><rect x="80" y="90" width="360" height="20" rx="6"></rect><rect x="80" y="140" width="360" height="20" rx="6"></rect></g></svg>
-                </div>
-                <div class="card-body">
-                    <div class="meta">
-                        <div class="title">Étagère Nord</div>
-                        <div class="price">€520</div>
-                    </div>
-                    <div class="actions">
-                        <button class="btn view">Voir</button>
-                        <button class="fav" title="Ajouter aux favoris" aria-pressed="false">♡</button>
-                    </div>
-                </div>
-            </article>
-        </main>
+<div class="item">
+<div class="thumb"></div>
+<div class="name">Coussin Vell</div>
+<div class="price">€45</div>
+<a class="btn">Voir</a>
+</div>
 
-        <footer>Velora Luxe Studio — Collection © 2025</footer>
-    </div>
+</div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal-card" role="document">
-            <div class="modal-img" id="modalImg" aria-hidden="true">
-                <!-- svg preview will be cloned here -->
-            </div>
-            <div class="modal-body">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                    <div>
-                        <h2 id="modalTitle" style="margin:0 0 6px 0;font-size:1.1rem">Titre</h2>
-                        <div class="muted" id="modalPrice">€0</div>
-                    </div>
-                    <button class="close-btn" id="closeModal" aria-label="Fermer">✕</button>
-                </div>
-                <p class="muted" id="modalDesc">Description courte du produit et caractéristiques.</p>
-                <div style="margin-top:14px; display:flex; gap:8px;">
-                    <button class="btn" id="addToCart">Ajouter au panier</button>
-                    <button class="btn" id="buyNow">Acheter</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<footer>Velora Luxe Studio — Collection © 2025</footer>
 
-    <script>
-        // short utility for filtering & modal
-        (function(){
-            const grid = document.getElementById('grid');
-            const items = Array.from(grid.querySelectorAll('.card'));
-            const search = document.getElementById('search');
-            const filters = document.querySelectorAll('.filter-btn');
-
-            function applyFilter(){
-                const q = search.value.trim().toLowerCase();
-                const activeCat = document.querySelector('.filter-btn.active').dataset.cat;
-                items.forEach(it=>{
-                    const title = it.dataset.title.toLowerCase();
-                    const cat = it.dataset.category;
-                    const matchesQ = q === '' || title.includes(q);
-                    const matchesCat = activeCat === 'all' || activeCat === cat;
-                    it.style.display = (matchesQ && matchesCat) ? '' : 'none';
-                });
-            }
-
-            search.addEventListener('input', applyFilter);
-
-            filters.forEach(btn=>{
-                btn.addEventListener('click', ()=>{
-                    filters.forEach(b=>b.classList.remove('active'));
-                    btn.classList.add('active');
-                    applyFilter();
-                });
-            });
-
-            // favorites toggle
-            grid.addEventListener('click', (e)=>{
-                if(e.target.classList.contains('fav')){
-                    const btn = e.target;
-                    const active = btn.classList.toggle('active');
-                    btn.setAttribute('aria-pressed', String(active));
-                    btn.textContent = active ? '♥' : '♡';
-                }
-            });
-
-            // modal behavior
-            const modal = document.getElementById('modal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalPrice = document.getElementById('modalPrice');
-            const modalImg = document.getElementById('modalImg');
-            const modalDesc = document.getElementById('modalDesc');
-            const closeModal = document.getElementById('closeModal');
-
-            grid.addEventListener('click', (e)=>{
-                const view = e.target.closest('.view');
-                if(!view) return;
-                const card = e.target.closest('.card');
-                openModal(card);
-            });
-
-            function openModal(card){
-                modalTitle.textContent = card.dataset.title;
-                modalPrice.textContent = card.querySelector('.price').textContent;
-                modalDesc.textContent = "Pièce de la collection — design haut de gamme, matériaux sélectionnés.";
-                modalImg.innerHTML = '';
-                // clone thumbnail svg
-                const svg = card.querySelector('.thumb svg');
-                if(svg) modalImg.appendChild(svg.cloneNode(true));
-                modal.classList.add('open');
-                modal.setAttribute('aria-hidden','false');
-            }
-
-            function close(){
-                modal.classList.remove('open');
-                modal.setAttribute('aria-hidden','true');
-            }
-
-            closeModal.addEventListener('click', close);
-            modal.addEventListener('click', (e)=>{ if(e.target === modal) close(); });
-            document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
-
-            // initial filter (in case)
-            applyFilter();
-        })();
-    </script>
+</div>
 </body>
-</html></div></article></div>
+</html>
